@@ -7,7 +7,7 @@ To use the configurations for a local user, symlink the required files or direct
 ```bash
 sudo cp -r ~/.config/waybar /tmp/waybar-backup
 rm -rf ~/.config/waybar
-mkdir -p ~/.config
+mkdir -p ~/.config/waybar
 
 # Create the symlink
 ln -s /etc/nixos/waybar ~/.config/waybar
