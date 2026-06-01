@@ -5,6 +5,7 @@ To use the configurations for a local user, symlink the required files or direct
 ### Example: Waybar
 
 ```bash
+sudo cp -r ~/.config/waybar /tmp/waybar-backup
 rm -rf ~/.config/waybar
 mkdir -p ~/.config
 
@@ -22,6 +23,14 @@ Expected output:
 
 ```text
 waybar -> /etc/nixos/waybar
+```
+
+### Optional
+
+Only if all the commands are run successfully:
+
+```bash
+sudo rm -rf /tmp/waybar-backup
 ```
 
 > **Note**
