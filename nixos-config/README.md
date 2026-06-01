@@ -1,5 +1,5 @@
 # Using the configs for local user
-To use the configs for home user(s), symlink the required config directories/files.  
+To use the configs for home user(s), it is recommended to symlink the required config directories/files to the respective local users' `.config` directory.
 
 For an example, to use `waybar` config inside `$HOME` directory, you can use:
 ```
