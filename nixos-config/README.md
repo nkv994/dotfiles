@@ -3,7 +3,7 @@ To use the configs for home user(s), it is recommended to symlink the required c
 
 For an example, to use `waybar` config inside `$HOME` directory, you can use:
 ```
-$ rm -rf $HOME/waybar/ && mkdir -p $HOME/waybar/
+$ rm -rf $HOME/.config/waybar/ && mkdir -p $HOME/.config/waybar/
 
 # THEN 
 
