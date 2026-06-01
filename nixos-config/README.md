@@ -1,14 +1,35 @@
-# Using the configs for local user
-To use the configs for home user(s), it is recommended to symlink the required config directories/files to the respective local users' `.config` directory.
+## Using the configs for local users
 
-For an example, to use `waybar` config inside `$HOME` directory, you can use:
+To use the configurations for a local user, symlink the required files or directories into the user's `~/.config` directory.
+
+### Example: Waybar
+
+```bash
+rm -rf ~/.config/waybar
+mkdir -p ~/.config
+
+# Create the symlink
+ln -s /etc/nixos/waybar ~/.config/waybar
 ```
-$ rm -rf $HOME/.config/waybar/ && mkdir -p $HOME/.config/waybar/
 
-# THEN 
+### Verify
 
-# Take care not to put a '/' after the directory name while symlinking
-$ ln -s /etc/nixos/waybar $HOME/.config/waybar
-# ^^^ Like: ln -s TARGET LINK_NAME
-# Check "$ man ln" once.
+```bash
+ls -l ~/.config/waybar
 ```
+
+Expected output:
+
+```text
+waybar -> /etc/nixos/waybar
+```
+
+> **Note**
+>
+> Do **not** add a trailing `/` to the target directory when creating the symlink.
+>
+> ```bash
+> ln -s TARGET LINK_NAME
+> ```
+>
+> See `man ln` for details.
