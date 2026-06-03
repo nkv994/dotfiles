@@ -103,6 +103,7 @@
     spotify
     hyprlauncher    # Menu app for Hyprland
     libnotify
+    nwg-look
   ];
 
   # Setting up freqently usable Nerd fonts
