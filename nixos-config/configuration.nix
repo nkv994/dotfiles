@@ -13,7 +13,15 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
-  # ^^^ false is important for portability!
+  # ^^^ false is  for portability!
+
+  # Adding GRUB additionally for legacy BIOS machines:
+  # boot.loader.grub = {
+  #     enable = true;
+  #     device = "nodev";
+  #     efiSupport = true;
+  #     useOSProber = false;
+  # };
 
   networking.hostName = "nikhil-nixos"; # Define your hostname.
 
@@ -23,9 +31,12 @@
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  services.getty.autologinUser = "nikhil";
-
-
+  # services.getty.autologinUser = "nikhil";
+  # OR if using COSMIC login manager (cosmic-greeter):
+  # services.displayManager.autoLogin = {
+  #     enable = true;
+  #     user = "nikhil";
+  # };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -76,7 +87,13 @@
     ];
   };
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+      enable = true;
+      preferences = {
+          "widget.gtk.libadwaita-colors.enabled" = false;  # To customize Firefox's theme based on desktop environment's appearance
+      };
+  };
+
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -104,6 +121,7 @@
     hyprlauncher    # Menu app for Hyprland
     libnotify
     nwg-look
+    zip
   ];
 
   # Setting up freqently usable Nerd fonts
@@ -171,8 +189,9 @@
 
   # Don't pin the specific CPU microcode
   # Remove or comment out:
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.cpu.amd.updateMicrocode = true;
+  # hardware.cpu.intel.updateMicrocode = true;
+  # hardware.cpu.amd.updateMicrocode = true;
+  # ^^^ Already managed by hardware-configuration.nix; commented out to remove any conflicts
 
   # Support both instead:
   hardware.enableRedistributableFirmware = true;
@@ -188,6 +207,9 @@
       withUWSM = true;
   };
 
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
+
   # Reqired: a display manager to launch Hyprland
   # Configuring simple desktop display manager
   services.displayManager.sddm = {  
@@ -198,6 +220,9 @@
           X11.KeyboardLayout = "us";
       };
   };
+  # OR
+  # Use COSMIC login manager instead
+  services.displayManager.cosmic-greeter.enable = false;  # Conflicts with UWSM
 
   # Required for screen-sharing/portals
   xdg.portal = {
@@ -211,18 +236,7 @@
   # Also needed for Hyprland privilege escalation
   security.rtkit.enable = true;
 
-  # For better GPU/graphics support
-  hardware.graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-        # Intel
-        intel-media-driver
-        intel-vaapi-driver
-        # Mesa (covers most open-source drivers as fallback)
-        mesa
-    ];
-  };
-  # ^^^ Note: NVIDIA graphics support is not yet covered in order to maintain platform independence, but it may be added here at a later point of time.
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # For downloading proprietory applications like Spotify
@@ -231,5 +245,74 @@
   # Enable the brightnessctl udev rules
   services.udev.packages = [ pkgs.brightnessctl ];
   # ^^^ The `udev` rules set correct permissions on /sys/class/backlight/* so group `video` members can write to it without `sudo` -- this is required for configuring hypridle flawlessly on Hyprland (see hypr/hypridle.conf).
+
+
+  ##### MANAGING CPU OPTIMIZATIONS #####
+
+  # Verdor and brand-specific services (only activated when matching hardware is found)
+  services.thermald.enable = true;  # Intel-specific thermal daemon -- aggressively manages heat on Intel-based devices
+  services.asusd.enable = true;  # ASUS-specific thermal daemon -- manages fan curves/profiles on ASUS devices
+
+  
+  # - amd_pstate=passive: Enables efficient thermal scaling on AMD CPUs without crashing Intel.
+  # - intel_pstate=disable: Forces Intel CPUs to fallback to traditional ACPI scaling (crucial for Fujitsu).
+  boot.kernelParams = [ "amd_pstate=passive" "intel_pstate=disable" ];
+
+  # Load specific kernel modules. We can do so simultaneously as they remain safely dormant if the hardware isn't present.
+  boot.kernelModules = [ 
+    "thinkpad_acpi"   # Unlocks manual fan controls on Lenovo ThinkPads
+    "coretemp"        # Enables CPU temperature sensors for Intel chips
+    "k10temp"         # Enables CPU temperature sensors for AMD chips
+  ];  
+
+  # CoolerControl manages dynamic fan curves for any desktop or compatible laptop detected
+  programs.coolercontrol = {
+    enable = true;
+    # nvidiaSupport = true; # Automatically enables if an active NVIDIA card is registered
+    # ^^^ Deprecated as Nvidia drivers are autoloaded during runtime.
+  };
+
+  # COSMIC enables power-profiles-daemon implicitly; disable it in favour of auto-cpufreq
+  services.power-profiles-daemon.enable = false;
+  # Enable auto-cpufreq for active governor scaling
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never"; # Prevents hot temperature spikes on battery
+    };
+    charger = {
+      governor = "schedutil"; # Balanced power/thermal governor
+      turbo = "auto";
+    };
+  };  
+  
+  # For better GPU/graphics support
+  hardware.graphics = {
+      enable = true;
+      enable32Bit = true;  # For 32-bit architectures, if needed
+      extraPackages = with pkgs; [
+        # Intel
+        intel-media-driver
+        intel-vaapi-driver
+        # Mesa (covers most open-source drivers as fallback)
+        mesa
+        # For NVIDIA/AMD hardware acceleration mapping
+        libva-vdpau-driver
+        # For translation layers
+        libvdpau-va-gl
+    ];
+  };
+  # ^^^ Note: ~~~NVIDIA graphics support is not yet covered in order to maintain platform independence, but it may be added here at a later point of time~~~ Added NVIDIA graphics support at raw/testing stage
+
+  # System76 Power Management and Scheduling 
+  hardware.system76.power-daemon.enable = false;  # true is expected to work only on System76 specific hardwares.
+  services.system76-scheduler.enable = true;
+
+  # Recommended CPU Governor for general desktop responsiveness and thermal scaling
+  # powerManagement.cpuFreqGovernor = "schedutil";   
+  # ^^^ auto-cpufreq already overwrites it
+
+  ###### ##### ##### ##### ##### ##### #
 }
 

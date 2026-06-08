@@ -13,7 +13,7 @@
 
     outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
         nixosConfigurations.nikhil-nixos = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            system = "x86_64-linux";  # aarch64-linux not yet supported -- add a second nixosConfiguration if needed
             specialArgs = { inherit inputs; };
             modules = [
                 hyprland.nixosModules.default
