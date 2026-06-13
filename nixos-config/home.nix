@@ -93,5 +93,6 @@
 
     home.packages = with pkgs; [
         onedriver  # Refer github:jstaf/onedriver
+        telegram-desktop
     ];
 }

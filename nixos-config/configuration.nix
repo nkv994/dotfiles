@@ -273,9 +273,9 @@
   };
 
   # COSMIC enables power-profiles-daemon implicitly; disable it in favour of auto-cpufreq
-  services.power-profiles-daemon.enable = false;
+  services.power-profiles-daemon.enable = true;
   # Enable auto-cpufreq for active governor scaling
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.enable = false;
   services.auto-cpufreq.settings = {
     battery = {
       governor = "powersave";
@@ -306,7 +306,7 @@
   # ^^^ Note: ~~~NVIDIA graphics support is not yet covered in order to maintain platform independence, but it may be added here at a later point of time~~~ Added NVIDIA graphics support at raw/testing stage
 
   # System76 Power Management and Scheduling 
-  hardware.system76.power-daemon.enable = false;  # true is expected to work only on System76 specific hardwares.
+  hardware.system76.power-daemon.enable = true;  # true is expected to work only on System76 specific hardwares.
   services.system76-scheduler.enable = true;
 
   # Recommended CPU Governor for general desktop responsiveness and thermal scaling
