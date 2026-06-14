@@ -116,7 +116,7 @@
     thunar          # File manager
     xdg-desktop-portal-gtk
     brightnessctl
-    openfortivpn
+    openfortivpn    # For managing SSL-VPN connections using Forticlient
     spotify
     hyprlauncher    # Menu app for Hyprland
     libnotify
@@ -231,7 +231,7 @@
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # Polkit for privilege escalation (needed by many GUI apps)
+  # Polkit for privilege escalation (needed by many GUI apps), including allowing users to hibernate without sudo
   security.polkit.enable = true;
   # Also needed for Hyprland privilege escalation
   security.rtkit.enable = true;
@@ -256,7 +256,8 @@
   
   # - amd_pstate=passive: Enables efficient thermal scaling on AMD CPUs without crashing Intel.
   # - intel_pstate=disable: Forces Intel CPUs to fallback to traditional ACPI scaling (crucial for Fujitsu).
-  boot.kernelParams = [ "amd_pstate=passive" "intel_pstate=disable" ];
+  boot.kernelParams = [ "amd_pstate=passive" "intel_pstate=disable" "resume=/dev/disk/by-label/nixos-swap" ];
+  # ^^^ There is more to it (refer hibernate resume below)
 
   # Load specific kernel modules. We can do so simultaneously as they remain safely dormant if the hardware isn't present.
   boot.kernelModules = [ 
@@ -314,5 +315,22 @@
   # ^^^ auto-cpufreq already overwrites it
 
   ###### ##### ##### ##### ##### ##### #
+
+  ##### MANAGING SYSTEM HIBERNATION (platform-dependent) #####
+
+  # Hibernate resume device and kernel parameters
+  boot = {
+      # Tell the kernel where to resume from
+      resumeDevice = "/dev/disk/by-label/nixos-swap";
+      #kernelParams = [ "resume=" ]; (added already)
+  };
+
+  # Enable hibernate in systemd
+  systemd.sleep.settings.Sleep = {
+      AllowHibernation = true;
+      HibernateMode = "platform shutdown";
+  };
+
+  ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 }
 

@@ -52,3 +52,8 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- Screenshots (to be edited later)
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png"), { locked = true })
+hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png"), { locked = true })
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grim - | wl-copy"), { locked = true })
