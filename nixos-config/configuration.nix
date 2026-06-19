@@ -34,7 +34,7 @@
   # services.getty.autologinUser = "nikhil";
   # OR if using COSMIC login manager (cosmic-greeter):
   # services.displayManager.autoLogin = {
-  #     enable = true;
+  #     enable = true;  # autoLogin needs to be disabled when using Lemurs display manager.
   #     user = "nikhil";
   # };
 
@@ -81,6 +81,9 @@
     extraGroups = [ 
         "wheel"  # Enable ‘sudo’ for the user
         "video"  # Grant user access to backlight control
+        "input"  # To use "keyboard-state" module in waybar
+        "seat"  # Required group for Wayland sessions; Lemurs' module automatically turns on seatd
+        "networkmanager"  # Grant full passwordless access to NetworkManager actions
     ];
     packages = with pkgs; [
       tree
@@ -122,6 +125,7 @@
     libnotify
     nwg-look
     zip
+    playerctl
   ];
 
   # Setting up freqently usable Nerd fonts
@@ -213,7 +217,7 @@
   # Reqired: a display manager to launch Hyprland
   # Configuring simple desktop display manager
   services.displayManager.sddm = {  
-      enable = true;
+      enable = false;
       wayland.enable = true;
       settings = {
           General.InputMethod = "";
@@ -223,6 +227,13 @@
   # OR
   # Use COSMIC login manager instead
   services.displayManager.cosmic-greeter.enable = false;  # Conflicts with UWSM
+  # OR
+  # Enable the Lemurs display manager
+  services.displayManager.lemurs = {
+      enable = true;
+      settings.environment_switcher.max_display_length = 24;  # 
+  };
+
 
   # Required for screen-sharing/portals
   xdg.portal = {

@@ -1,7 +1,7 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
- local programs = require("hyprconf/programs")
+ --local programs = require("hyprconf/programs")
  -- ^^^ Since the calling block is located at ~/.config/hypr/ (in the file hyprland.lua)
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)

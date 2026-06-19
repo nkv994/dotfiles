@@ -4,16 +4,18 @@
     home.homeDirectory = "/home/nikhil";
     home.stateVersion = "25.11";
 
+    home.sessionVariables.GI_TYPELIB_PATH = "${pkgs.playerctl}/lib/girepository-1.0";  # To use "custom/media" module of waybar
+
     programs.bash = {
         enable = true;
         shellAliases = {
             btw = "echo I use NixOS, btw.";
         };
-        profileExtra = ''
-            if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-                exec uwsm start -S hyprland-uwsm.desktop
-            fi
-        '';
+#        profileExtra = ''
+#            if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+#                exec uwsm start -S hyprland-uwsm.desktop
+#            fi
+#        '';
     };
 
     programs.git = {
@@ -95,5 +97,12 @@
         onedriver  # Refer github:jstaf/onedriver
         telegram-desktop
         legcord
+        (python3.withPackages (ps: with ps; [
+            pygobject3  # To compile ~/.config/waybar/mediaplayer.py 
+        ]))
+        gnome-sound-recorder
+        webcamoid
+        rustc
+        cargo
     ];
 }

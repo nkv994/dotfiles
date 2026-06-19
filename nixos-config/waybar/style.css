@@ -93,12 +93,26 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+
 #mpd {
     padding: 0 10px;
     color: #ffffff;
 }
 
-#window,
+#window {
+    background: rgba(40, 40, 40, 0.8);
+    border-radius: 12px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    font-weight: bold;
+}
+
+
 #workspaces {
     margin: 0 4px;
 }

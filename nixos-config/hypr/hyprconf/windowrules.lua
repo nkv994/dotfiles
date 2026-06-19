@@ -45,3 +45,8 @@ hl.window_rule({
     float = true,
 })
 
+-- Customizing opacity of Firefox
+hl.window_rule({
+    match = { class = "kitty" },
+    opacity = "0.87 override 0.6 override 0.7 override",
+})

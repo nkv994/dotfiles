@@ -57,3 +57,8 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png"), { locked = true })
 hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png"), { locked = true })
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grim - | wl-copy"), { locked = true })
+
+-- F11: true fullscreen (edge-to-edge, hides bars/gaps/borders)
+hl.bind("F11", hl.dsp.window.fullscreen({ mode = 0 }))
+-- mainMod + Up: maximize (fills the workspace, respects bar/reserved space)
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))

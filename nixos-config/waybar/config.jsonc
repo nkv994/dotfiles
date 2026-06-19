@@ -9,7 +9,7 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap",
-        "sway/scratchpad",
+        "keyboard-state",
         "custom/media"
     ],
     "modules-center": [
@@ -25,8 +25,6 @@
         "memory",
         "temperature",
         "backlight",
-        "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "clock",
@@ -52,8 +50,8 @@
     // },
     "hyprland/workspaces": {
 	    "format": "{icon}",
-	    "on-scroll-up": "hyprctl dispatch workspace e+1",
-	    "on-scroll-down": "hyprctl dispatch workspace e-1"
+	    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+	    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'"
     },
     "keyboard-state": {
         "numlock": true,
@@ -66,13 +64,6 @@
     },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -180,11 +171,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+        "format": "{icon}  {volume}%  {format_source}",
+        "format-bluetooth": "{icon} {volume}%  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",  // Note: source_volume is not exposed directly in all versions so % may be inconsistent
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
