@@ -1,4 +1,4 @@
-## Cloning and pulling changes in this repo
+## Cloning and pulling changes from this repo
 
 Suppose you (plan to) keep git-clones at `~/Documents/git-repo` directory in your system. Run the following commands in sequence:
 ```bash

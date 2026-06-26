@@ -56,7 +56,7 @@ rm -rf ~/.config/starship.backup/
 ```
 and/or:
 ```bash
-rm -rf ~/.bashrc.backup
+rm ~/.bashrc.backup
 ```
 etc.
 
