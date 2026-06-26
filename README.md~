@@ -25,7 +25,7 @@ And then create a symlink targetting at the config file in the Git directory in 
 ln -s ~/Documents/git-repo/dotfiles-nikhil/starship ~/.config/starship
 ```
 
-# Example: `.bashrc`
+### Example: `.bashrc`
 ```bash
 mv ~/.bashrc ~/.bashrc.backup
 ln -s ~/Documents/git-repo/dotfiles-nikhil/.bashrc ~/.bashrc
