@@ -1,0 +1,229 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  Starship — Professional Developer Config
+#  Aesthetic: Tokyo Night / Refined Dark
+#  Nerd Font required: https://www.nerdfonts.com/
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# ── Top-level ──────────────────────────────────────────────────────────
+add_newline = true
+command_timeout = 1000
+
+# ── Prompt format ──────────────────────────────────────────────────────
+# Two-line prompt:
+#   ╭─ 󰉋 ~/projects/myapp  main ·3  ●2  v22.1.0  py 3.12.0  1.2s
+#   ╰─ ❯
+format = """
+[╭─](bold 238) \
+$os\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$nodejs\
+$python\
+$conda\
+$rust\
+$golang\
+$java\
+$php\
+$ruby\
+$docker_context\
+$kubernetes\
+$terraform\
+$aws\
+$gcloud\
+$cmd_duration\
+$line_break\
+[╰─](bold 238) \
+$status\
+$character"""
+
+right_format = """$time"""
+
+# ── OS Icon ────────────────────────────────────────────────────────────
+[os]
+disabled = false
+style = "bold 245"
+
+[os.symbols]
+Macos   = "  "
+Linux   = "  "
+Ubuntu  = "  "
+Windows = "  "
+Arch    = "  "
+Debian  = "  "
+Fedora  = "  "
+
+# ── Directory ──────────────────────────────────────────────────────────
+[directory]
+style                     = "bold #7aa2f7"
+read_only_style           = "bold #f7768e"
+truncation_length         = 4
+truncate_to_repo          = true
+truncation_symbol         = "…/"
+read_only                 = "  "
+home_symbol               = " ~"
+format                    = "[$path]($style)[$read_only]($read_only_style) "
+
+[directory.substitutions]
+"Documents"  = "󰈙 Docs"
+"Downloads"  = "󰇚 Down"
+"Desktop"    = "󰖟 Desktop"
+"src"        = " src"
+"Projects"   = "󰲋 Projects"
+
+# ── Git ────────────────────────────────────────────────────────────────
+[git_branch]
+symbol      = " "
+style       = "bold #bb9af7"
+format      = "[$symbol$branch(:$remote_branch)]($style) "
+truncation_length = 28
+truncation_symbol = "…"
+
+[git_status]
+style     = "bold #e0af68"
+format    = "([$all_status$ahead_behind]($style) )"
+ahead     = "⇡${count}"
+behind    = "⇣${count}"
+diverged  = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date   = ""
+untracked = "[?${count}](bold 245) "
+stashed   = "[≡ ](bold 245)"
+modified  = "[●${count}](bold #e0af68) "
+staged    = "[✚${count}](bold #9ece6a) "
+renamed   = "[»${count}](bold #7dcfff) "
+deleted   = "[✘${count}](bold #f7768e) "
+conflicted = "[!${count}](bold #f7768e) "
+
+[git_state]
+style        = "bold #f7768e"
+format       = "[$state( $progress_current/$progress_total)]($style) "
+cherry_pick  = "[󰦣 CHERRY](bold #f7768e)"
+merge        = "[ MERGE](bold #e0af68)"
+rebase       = "[ REBASE](bold #bb9af7)"
+bisect       = "[ BISECT](bold #7dcfff)"
+revert       = "[ REVERT](bold #f7768e)"
+
+# ── Languages ──────────────────────────────────────────────────────────
+[nodejs]
+symbol  = " "
+style   = "bold #9ece6a"
+format  = "[$symbol($version)]($style) "
+version_format = "v${major}.${minor}"
+detect_extensions = ["js", "mjs", "cjs", "ts", "tsx", "jsx"]
+detect_files = ["package.json", ".nvmrc", ".node-version"]
+
+[python]
+symbol         = " "
+style          = "bold #e0af68"
+format         = "[$symbol$virtualenv( $version)]($style) "
+version_format = "${major}.${minor}"
+pyenv_version_name = true
+detect_files   = ["pyproject.toml", "requirements.txt", ".python-version", "Pipfile"]
+
+[rust]
+symbol  = "󱘗 "
+style   = "bold #f7768e"
+format  = "[$symbol$version]($style) "
+version_format = "v${major}.${minor}"
+
+[golang]
+symbol  = " "
+style   = "bold #7dcfff"
+format  = "[$symbol$version]($style) "
+version_format = "v${major}.${minor}"
+
+[java]
+symbol  = " "
+style   = "bold #f7768e"
+format  = "[$symbol$version]($style) "
+version_format = "v${major}"
+
+[php]
+symbol  = " "
+style   = "bold #bb9af7"
+format  = "[$symbol$version]($style) "
+version_format = "v${major}.${minor}"
+
+[ruby]
+symbol  = " "
+style   = "bold #f7768e"
+format  = "[$symbol$version]($style) "
+version_format = "v${major}.${minor}"
+
+# ── Cloud & DevOps ─────────────────────────────────────────────────────
+[docker_context]
+symbol  = " "
+style   = "bold #7dcfff"
+format  = "[$symbol$context]($style) "
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+
+[kubernetes]
+symbol   = "󱃾 "
+style    = "bold #7aa2f7"
+format   = "[$symbol$context( \\($namespace\\))]($style) "
+disabled = false
+
+[terraform]
+symbol  = "󱁢 "
+style   = "bold #bb9af7"
+format  = "[$symbol$workspace]($style) "
+
+[aws]
+symbol  = " "
+style   = "bold #e0af68"
+format  = "[$symbol($profile)(\\[$duration\\])]($style) "
+
+[gcloud]
+symbol  = " "
+style   = "bold #7aa2f7"
+format  = "[$symbol$account(@$domain)(\\($project\\))]($style) "
+
+# ── Performance ────────────────────────────────────────────────────────
+[cmd_duration]
+min_time           = 2_000
+style              = "bold 245"
+format             = "[ $duration]($style) "
+show_milliseconds  = false
+
+# ── Status & Character ─────────────────────────────────────────────────
+[status]
+disabled = false
+style    = "bold #f7768e"
+format   = "[$symbol]($style) "
+symbol   = "✘"
+success_symbol = ""
+not_executable_symbol = " "
+not_found_symbol = " "
+
+[character]
+success_symbol = "[❯](bold #9ece6a)"
+error_symbol   = "[❯](bold #f7768e)"
+vimcmd_symbol  = "[❮](bold #bb9af7)"
+
+# ── Clock (right side) ─────────────────────────────────────────────────
+[time]
+disabled     = false
+style        = "bold 238"
+format       = "[$time]($style)"
+time_format  = "%H:%M"
+utc_time_offset = "local"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# INSTALL
+#   mkdir -p ~/.config/starship
+#   cp starship.toml ~/.config/starship.toml
+#
+# FONTS
+#   Install any Nerd Font (JetBrainsMono NF recommended):
+#   https://www.nerdfonts.com/font-downloads
+#   Then set your terminal to use it.
+#
+# SHELL INIT (add to your shell rc file)
+#   bash:  eval "$(starship init bash)"
+#   zsh:   eval "$(starship init zsh)"
+#   fish:  starship init fish | source
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
