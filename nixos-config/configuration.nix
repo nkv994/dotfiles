@@ -34,7 +34,7 @@
   # services.getty.autologinUser = "nikhil";
   # OR if using COSMIC login manager (cosmic-greeter):
   # services.displayManager.autoLogin = {
-  #     enable = true;  # autoLogin needs to be disabled when using Lemurs display manager.
+  #     enable = true;
   #     user = "nikhil";
   # };
 
@@ -43,12 +43,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    # keyMap = "us";
+    useXkbConfig = true; # use xkb.options in tty.
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -82,12 +82,11 @@
         "wheel"  # Enable ‘sudo’ for the user
         "video"  # Grant user access to backlight control
         "input"  # To use "keyboard-state" module in waybar
-        "seat"  # Required group for Wayland sessions; Lemurs' module automatically turns on seatd
-        "networkmanager"  # Grant full passwordless access to NetworkManager actions
     ];
     packages = with pkgs; [
       tree
     ];
+    linger = true;  # Ensures user@UID.service starts automatically and keeps the user systemd manager alive
   };
 
   programs.firefox = {
@@ -110,6 +109,8 @@
     hyprpaper       # Wallpaper
     hyprlock        # Screen locker
     hypridle        # Idle daemon
+    hyprsunset      # For configuring night light in Hyprland
+    hyprpicker      # Color-picker for Hyprland
     grim            # Screenshots
     slurp           # Region selection for screenshots
     wl-clipboard    # Clipboard
@@ -125,6 +126,7 @@
     libnotify
     nwg-look
     zip
+    unzip
     playerctl
   ];
 
@@ -137,6 +139,10 @@
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
     nerd-fonts.hack
+    noto-fonts
+    noto-fonts-color-emoji
+    liberation_ttf
+    dejavu_fonts
   ];
   
   environment.sessionVariables = {
@@ -217,23 +223,23 @@
   # Reqired: a display manager to launch Hyprland
   # Configuring simple desktop display manager
   services.displayManager.sddm = {  
-      enable = false;
+      enable = true;
+      theme = "breeze";
       wayland.enable = true;
       settings = {
-          General.InputMethod = "";
-          X11.KeyboardLayout = "us";
+          General = {
+              CursorTheme = "Adwaita";
+              CursorSize = 24;
+              Font = "Noto Sans,10";
+              # Fix mouse clicking
+              FactorIcon = 2;
+              EnableHiDPI = true;
+          };
       };
   };
   # OR
   # Use COSMIC login manager instead
   services.displayManager.cosmic-greeter.enable = false;  # Conflicts with UWSM
-  # OR
-  # Enable the Lemurs display manager
-  services.displayManager.lemurs = {
-      enable = true;
-      settings.environment_switcher.max_display_length = 24;  # 
-  };
-
 
   # Required for screen-sharing/portals
   xdg.portal = {
@@ -241,7 +247,7 @@
       # extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];  # xdg-desktop-portal-hyprland is already added in hyprland.nixosModules.default
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
-
+  
   # Polkit for privilege escalation (needed by many GUI apps), including allowing users to hibernate without sudo
   security.polkit.enable = true;
   # Also needed for Hyprland privilege escalation

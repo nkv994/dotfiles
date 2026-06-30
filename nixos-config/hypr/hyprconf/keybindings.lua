@@ -62,3 +62,5 @@ hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grim - | wl-copy"), { locked = true })
 hl.bind("F11", hl.dsp.window.fullscreen({ mode = 0 }))
 -- mainMod + Up: maximize (fills the workspace, respects bar/reserved space)
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))
+
+hl.bind("ALT + F2", hl.dsp.exec_cmd("wofi --show run"))

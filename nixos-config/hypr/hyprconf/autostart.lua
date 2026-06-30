@@ -10,7 +10,7 @@
  hl.on("hyprland.start", function () 
    --hl.exec_cmd(programs.terminal)
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("hyprpaper & hypridle & waybar")
+   hl.exec_cmd("hyprpaper & hypridle & waybar & hyprsunset")
    hl.exec_cmd("hyprctl reload")
  end)
 

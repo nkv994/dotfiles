@@ -7,7 +7,7 @@
     home.sessionVariables.GI_TYPELIB_PATH = "${pkgs.playerctl}/lib/girepository-1.0";  # To use "custom/media" module of waybar
 
     programs.bash = {
-        enable = true;
+       enable = true;
         shellAliases = {
             btw = "echo I use NixOS, btw.";
         };
@@ -25,6 +25,14 @@
             safe.directory = "/etc/nixos";
         };
     };
+
+#    programs.vim = {
+#      enable = true;
+#
+#      plugins = with pkgs.vimPlugins; [
+#        vim-css-color
+#      ];
+#    };
 
 # Commenting in order to remove the previous symlink for Hyprland config.
 #     wayland.windowManager.hyprland = {
@@ -104,5 +112,7 @@
         webcamoid
         rustc
         cargo
+        geeqie
+        gh
     ];
 }
