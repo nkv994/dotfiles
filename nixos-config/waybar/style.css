@@ -43,7 +43,7 @@ tooltip label {
     padding: 0px 4px;
     margin: 0px 2px;
     border-radius: 50px;
-    color: transparent;
+    color: @fg;
     background-color: @bg1;
     transition: all 0.3s ease-in-out;
 }
@@ -81,13 +81,14 @@ tooltip label {
 
 #custom-notification {
     background-color: @bg0;
-    padding: 0 15px 0 15px; /* Top --> Right --> Bottom --> Left */
-    margin: 0 12px 0 ;
+    padding: 0 10px 0 10px; /* Top --> Right --> Bottom --> Left */
+    margin: 0 4px 0;
     border-radius: 50px;
     border: 1px solid @bg1;
 }
 
 #clock {
+    background-color: @bg0;
     color: @orange;
     font-weight: bold;
 }
