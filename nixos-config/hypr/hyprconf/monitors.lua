@@ -30,7 +30,7 @@ else
         output = "desc:Sharp Corporation LQ133M1JW62A",
         mode = "1920x1080@60.05",
         position = "1366x0",
-        scale = 1.50,
+        scale = 1.5, -- Add custom scaling factor
     })
 end
 -- OR

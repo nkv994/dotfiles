@@ -106,7 +106,7 @@
     killall
     waybar          # Status bar
     wofi            # App launcher (or rofi-wayland)
-    dunst           # Notifications
+    swaynotificationcenter  # Notifications
     hyprpaper       # Wallpaper
     hyprlock        # Screen locker
     hypridle        # Idle daemon

@@ -54,8 +54,8 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Screenshots (to be edited later)
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png"), { locked = true })
-hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png"), { locked = true })
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim - | tee ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png | wl-copy"), { locked = true })
+hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d_%H-%M-%S').png | wl-copy"), { locked = true })
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grim - | wl-copy"), { locked = true })
 
 -- F11: true fullscreen (edge-to-edge, hides bars/gaps/borders)
@@ -63,4 +63,8 @@ hl.bind("F11", hl.dsp.window.fullscreen({ mode = 0 }))
 -- mainMod + Up: maximize (fills the workspace, respects bar/reserved space)
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))
 
+-- Launches Wofi lancher
 hl.bind("ALT + F2", hl.dsp.exec_cmd("wofi --show run"))
+
+-- Launches Waybar
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/waybar/scripts/launch.sh"))
