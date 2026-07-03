@@ -1,9 +1,9 @@
-#format = """
-#[╭─user───❯](bold blue) $username
-#[┣─system─❯](bold yellow) $hostname
-#[┣─project❯](bold red) $directory$rust$git_branch$git_state$git_status$conda$package$golang$terraform$docker_context$python$docker_context$nodejs
-#[╰─cmd────❯](bold green) 
-#"""
+format = """
+[╭─user───❯](bold blue) $username
+[┣─system─❯](bold yellow) $hostname
+[┣─project❯](bold red) $directory$rust$git_branch$git_state$git_status$conda$package$golang$terraform$docker_context$python$docker_context$nodejs
+[╰─cmd────❯](bold green) 
+"""
 [username]
 style_user = "green bold"
 style_root = "red bold"

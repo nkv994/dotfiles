@@ -136,7 +136,7 @@ export PATH=$PATH:/usr/local/MATLAB/R2025b/bin/
 eval "$(starship init bash)"
 export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
 alias gedit="gnome-text-editor"
-echo -e '\n'
+# echo -e '\n'
 
 # >>> juliaup initialize >>>
 
@@ -160,12 +160,14 @@ export NVM_DIR="$HOME/.nvm"
 alias la='ls -A'
 
 # Start tmux automatically
-#if command -v tmux >/dev/null 2>&1; then
-#    if [ -z "$TMUX" ]; then
-#        tmux
-#    fi
-#fi
+if command -v tmux >/dev/null 2>&1; then
+    if [ -z "$TMUX" ]; then
+        tmux
+    fi
+fi
 
 # Commented because of version conflicts with system's GLIBCXX libraries
 ## Adding ise command 
 #source /opt/Xilinx/14.7/ISE_DS/settings64.sh >/dev/null
+
+alias clear="echo -e \"\033c\""
