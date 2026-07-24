@@ -110,3 +110,26 @@ tooltip label {
     color: @green;
 }
 
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: alpha(#26A65B, 0.75);
+}
+
+@keyframes blink {
+    to {
+        background-color: alpha(#ffffff, 0.75);
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: alpha(#f53c3c, 0.75);
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+

@@ -13,7 +13,7 @@ end
 -- Home monitor (Compaq)
 hl.monitor({
     output = "HDMI-A-1",
-    mode = "1366x768@60.00",
+    mode = "1280x1024@60.00",
     position = "0x0",
     scale = 1,
 })
