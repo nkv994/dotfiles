@@ -114,5 +114,6 @@
         cargo
         geeqie
         gh
+		evince
     ];
 }
