@@ -116,4 +116,8 @@
         gh
 		evince
     ];
+
+    # Using Home Manager's packaged vim-plug (SHA-256 hash doesn't need to be manually-managed; no network download needs to be done during evaluation; reproducible, and gets automatically updated when Nixpkgs input is updated)
+    home.file.".local/share/nvim/site/autoload/plug.vim".source = 
+        "${pkgs.vimPlugins.vim-plug}/plug.vim";
 }

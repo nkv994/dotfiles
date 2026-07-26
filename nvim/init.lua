@@ -89,4 +89,4 @@ vim.api.nvim_create_user_command('Ranger', open_floating_ranger, {})
 -- keybinding --
 vim.keymap.set('n', '<leader>r', open_floating_ranger, { silent = true })
 vim.cmd.colorscheme("morning")
---vim.cmd.colorscheme("evening") -- to toggle evening colorscheme
+vim.cmd.colorscheme("evening") -- to toggle evening colorscheme
