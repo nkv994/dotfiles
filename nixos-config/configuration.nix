@@ -23,7 +23,7 @@
   #     useOSProber = false;
   # };
 
-  networking.hostName = "nikhil-nixos"; # Define your hostname.
+  networking.hostName = "nikhil-nixos";  # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -47,7 +47,7 @@
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "us";
-    useXkbConfig = true; # use xkb.options in tty.
+    useXkbConfig = true;  # use xkb.options in tty.
   };
 
   # Enable the X11 windowing system.
@@ -131,6 +131,7 @@
     zip
     unzip
     playerctl
+    wireguard-tools
   ];
 
   # Setting up freqently usable Nerd fonts
@@ -146,6 +147,7 @@
     noto-fonts-color-emoji
     liberation_ttf
     dejavu_fonts
+    pkgs.bookworm
   ];
   
   environment.sessionVariables = {
@@ -172,6 +174,7 @@
   networking.firewall.allowedUDPPorts = [ 5353 ];  # To enable discovery of Google Cast devices (and possibly other Spotify Connect devices) in the same network by the Spotify app
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.firewall.checkReversePath = false;  # (For using ProtonVPN.) If enabled, the kernel may drop packets if the incoming packet's source address doesn't appear to have a "valid" return route via the same interface that received it. VPN setups can confuse this because traffic can be routed/tunneled through a different interface than the one the packet arrived on.
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
