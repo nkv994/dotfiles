@@ -90,6 +90,19 @@
 		"max-length": 25
     },
 
+	
+	"power-profiles-daemon": {
+		  "format": "{icon}",
+		  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		  "tooltip": true,
+		  "format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		  }
+	},
+
     "custom/notification": {
        "tooltip": true,
        "format": "<span size='16pt'>{icon}</span>",

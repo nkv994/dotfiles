@@ -78,6 +78,7 @@ tooltip label {
 #memory,
 #network,
 #clock,
+#power-profiles-daemon,
 
 #custom-notification {
     background-color: @bg0;
