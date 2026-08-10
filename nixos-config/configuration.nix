@@ -134,21 +134,24 @@
     wireguard-tools
   ];
 
-  # Setting up freqently usable Nerd fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.iosevka
-    nerd-fonts.iosevka-term
-    nerd-fonts.iosevka-term-slab
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.fira-mono
-    nerd-fonts.hack
-    noto-fonts
-    noto-fonts-color-emoji
-    liberation_ttf
-    dejavu_fonts
-    pkgs.bookworm
-  ];
+  # Setting up freqently usable Nerd fonts and other fonts
+  fonts = {
+    enableGhostscriptFonts = true;
+    packages = with pkgs; [
+	nerd-fonts.iosevka
+	nerd-fonts.iosevka-term
+	nerd-fonts.iosevka-term-slab
+	nerd-fonts.jetbrains-mono
+	nerd-fonts.fira-code
+	nerd-fonts.fira-mono
+	nerd-fonts.hack
+	noto-fonts
+	noto-fonts-color-emoji
+	liberation_ttf
+	dejavu_fonts
+	eb-garamond
+    ];
+  };
   
   environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";             # Electron apps use Wayland 

@@ -21,7 +21,7 @@
     programs.git = {
         enable = true;
 
-        extraConfig = {
+        settings = {
             safe.directory = "/etc/nixos";
         };
     };
@@ -104,21 +104,23 @@
     home.packages = with pkgs; [
         onedriver  # Refer github:jstaf/onedriver
         telegram-desktop
-        legcord
+        legcord  # For Discord
         (python3.withPackages (ps: with ps; [
             pygobject3  # To compile ~/.config/waybar/mediaplayer.py 
         ]))
-        gnome-sound-recorder
-        webcamoid
-        rustc
-        cargo
+        gnome-sound-recorder  # For sound recording
+        webcamoid  # Camera app
+        rustc cargo  # Rust development environment
         geeqie  # Image viewer
-        gh
+        gh  # GitHub
 	evince  # Document viewer
-	hyfetch
-	ghostscript
-	riseup-vpn
-	protonvpn-gui
+	hyfetch  # For neowofetch command
+	ghostscript  # For creating and editing PDF files
+	riseup-vpn proton-vpn  # Different VPN softwares
+	font-manager  # For viewing and managing fonts
+	libreoffice
+	qdirstat ncdu baobab  # For GUI and CLI disk usage analysis interace
+	texlive.combined.scheme-full
     ];
 
     # Using Home Manager's packaged vim-plug (SHA-256 hash doesn't need to be manually-managed; no network download needs to be done during evaluation; reproducible, and gets automatically updated when Nixpkgs input is updated)
