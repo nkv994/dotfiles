@@ -131,6 +131,7 @@
     zip
     unzip
     playerctl
+    pavucontrol
     wireguard-tools
   ];
 

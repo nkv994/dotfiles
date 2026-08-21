@@ -13,9 +13,9 @@ end
 -- Home monitor (Compaq)
 hl.monitor({
     output = "HDMI-A-1",
-    mode = "1280x1024@60.00",
+    mode = "1920x1080@60.00",
     position = "0x0",
-    scale = 1,
+    scale = 1.5,
 })
 
 -- Fujitsu UH-X laptop's screen
@@ -52,4 +52,8 @@ hl.monitor({
     scale = "auto",
 })
 
-
+-- Removing duplicate entry of a lab monitor
+hl.monitor({
+    output = "DP-3",
+    disabled = true,
+})
