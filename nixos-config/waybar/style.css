@@ -73,12 +73,12 @@ tooltip label {
     transition: all 0.3s ease-in-out;
 }
 
+#power-profiles-daemon,
 #battery,
 #pulseaudio,
 #memory,
 #network,
 #clock,
-#power-profiles-daemon,
 
 #custom-notification {
     background-color: @bg0;
