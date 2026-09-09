@@ -7,7 +7,7 @@
     font-family: "Adwaita Sans", "JetBrainsMono Nerd Font Propo", sans-serif;
     font-weight: bold;
 
-    font-size: 16px;
+    font-size: 15px;
 
     min-height: 0;
     padding: 0;
@@ -15,8 +15,19 @@
 }
 
 window#waybar {
-    background: alpha(@bg0, 0.85);
-    color: @fg;
+    background: alpha(@bg0, 0.60);
+	/*background: repeating-linear-gradient(
+		135deg,
+		@bg2 0px,
+		@bg2 8px,
+		#006688 8px,
+		#006688 10px,
+		@bg2 10px,
+		@bg2 18px,
+		#ff8800 18px,
+		#ff8800 20px
+	);
+    color: @fg;*/
 }
 
 tooltip {
@@ -56,8 +67,9 @@ tooltip label {
     font-size: 15px;
 }
 
-#workspaces button.hover {
-    background-color: @purple;
+#workspaces button:hover {
+    background-color: @orange;
+	background-image: none;
     color: @bg0;
     border-radius: 16px;
     min-width: 50px;
@@ -113,7 +125,7 @@ tooltip label {
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: alpha(#26A65B, 0.75);
+    background-color: alpha(#26A65B, 1);
 }
 
 @keyframes blink {

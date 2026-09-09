@@ -160,11 +160,11 @@ export NVM_DIR="$HOME/.nvm"
 alias la='ls -A'
 
 # Start tmux automatically
-if command -v tmux >/dev/null 2>&1; then
-    if [ -z "$TMUX" ]; then
-        tmux
-    fi
-fi
+# if command -v tmux >/dev/null 2>&1; then
+#     if [ -z "$TMUX" ]; then
+#         tmux
+#     fi
+# fi
 
 # Commented because of version conflicts with system's GLIBCXX libraries
 ## Adding ise command 
