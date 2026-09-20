@@ -115,11 +115,30 @@ tooltip label {
     color: @yellow;
 }
 
+#memory {
+    color: @yellow;
+}
+
 #network {
     color: @purple;
 }
 
 #battery {
+    color: @green;
+}
+
+#power-profiles-daemon.performance {
+    background-color: alpha(red, 0.25);
+    color: @red;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: alpha(@blue, 0.25);
+    color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: alpha(@green, 0.25);
     color: @green;
 }
 

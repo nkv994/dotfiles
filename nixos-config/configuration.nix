@@ -96,6 +96,7 @@
       };
   };
 
+  programs.steam.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -133,6 +134,7 @@
     playerctl
     pavucontrol
     wireguard-tools
+    sshfs
   ];
 
   # Setting up freqently usable Nerd fonts and other fonts
@@ -172,6 +174,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Locks screen when the CPU power button is pressed.
+  services.logind.settings.Login.HandlePowerKey = "lock";
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 57621 ];  # To sync local tracks from filesystem with mobile devices in the same network
