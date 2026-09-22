@@ -4,6 +4,6 @@ return {
     terminal    = "kitty",
     fileManager = "thunar",
     menu        = "hyprlauncher",
-	browser		= "firefox"
+    browser		= "firefox"
 }
 
