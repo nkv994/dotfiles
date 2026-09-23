@@ -211,6 +211,7 @@ mapfile -t quotes <<'QUOTES'
 “Do not measure your life only by where you are. Measure it by the direction in which you are moving.”
 “The goal is not to arrive unchanged. The goal is to become capable of arriving somewhere worth reaching.”
 “A complex life, like a complex system, is not built in a single operation. It emerges from simple processes executed consistently over time.”
+<<<<<<< HEAD
 “Much of our behavior is a result of our environment.” — Richard Thaler
 “Losses loom larger than gains.” — Amos Tversky & Daniel Kahneman
 “People have a tendency to discount the future.”
@@ -223,6 +224,7 @@ mapfile -t quotes <<'QUOTES'
 [Social Proof] “The actions of others are often a source of information about what is appropriate.”
 “If I were designing my life from zero today, would I choose this arrangement?”
 "Nudge"
+"There is no honest and true work, carried along with constant and sincere purpose that ever really fails." — William George Jordan
 QUOTES
 
 count=${#quotes[@]}
