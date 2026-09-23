@@ -79,7 +79,6 @@ mapfile -t quotes <<'QUOTES'
 “People are just as happy as they make up their minds to be.” — Abraham Lincoln
 “Man is not a rational animal; he is a rationalizing animal.” — commonly attributed to Robert Heinlein; attribution is uncertain.
 “The most important thing is to be able at any moment to sacrifice what we are for what we could become.” — Charles Du Bos
-“We are what we repeatedly do.” — commonly attributed to Aristotle; the wording is a modern paraphrase associated with Will Durant.
 “When we are no longer able to change a situation, we are challenged to change ourselves.” — Viktor Frankl
 “He who has a why to live can bear almost any how.” — Friedrich Nietzsche
 “What does not kill me makes me stronger.” — Friedrich Nietzsche
@@ -139,14 +138,13 @@ mapfile -t quotes <<'QUOTES'
 “No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” — commonly attributed to Heraclitus; the wording is a later paraphrase.
 “The journey is the reward.” — often attributed to Steve Jobs; attribution is disputed.
 “Success is the sum of small efforts, repeated day in and day out.” — commonly attributed to Robert Collier; wording varies.
-“We are what we repeatedly do.” — commonly attributed to Aristotle; the formulation comes from Will Durant's paraphrase.
 “Excellence is not an act, but a habit.” — Will Durant, summarizing Aristotle
 “Great things are done by a series of small things brought together.” — Vincent van Gogh
 “We must all suffer one of two things: the pain of discipline or the pain of regret.” — commonly attributed to Jim Rohn
 “He who conquers himself is the mightiest warrior.” — commonly attributed to Confucius; attribution is uncertain
 “First say to yourself what you would be; and then do what you have to do.” — Epictetus
 “If you are going through hell, keep going.” — commonly attributed to Winston Churchill; attribution is disputed.
-“Our greatest glory is not in never falling, but in rising every time we fall.” — commonly attributed to Confucius; attribution is uncertain.
+“Our greatest glory is not in never falling, but in rising every time we fall.” — commonly attributed to Confucius; attribution is uncertain.ake quote.sh output the quote and attribution separately
 “Fall seven times, stand up eight.” — Japanese proverb
 “Failure is simply the opportunity to begin again, this time more intelligently.” — commonly attributed to Henry Ford
 “It does not matter how slowly you go as long as you do not stop.” — commonly attributed to Confucius; attribution is uncertain.
@@ -155,7 +153,7 @@ mapfile -t quotes <<'QUOTES'
 “In the midst of winter, I found there was, within me, an invincible summer.” — Albert Camus
 “The wound is the place where the Light enters you.” — commonly attributed to Rumi
 “It is not that we have a short time to live, but that we waste a lot of it.” — Seneca
-“You could leave life right now. Let that determine what you do and say and think.” 
+“You could leave life right now. Let that determine what you do and say and think.”
 “Become who you are.” — Friedrich Nietzsche
 “The privilege of a lifetime is to become who you truly are.” — commonly attributed to Carl Jung; attribution is uncertain
 “What you are, you are by accident of birth; what you become, you are by yourself.” — commonly attributed to Ralph Waldo Emerson; attribution is uncertain
@@ -163,7 +161,6 @@ mapfile -t quotes <<'QUOTES'
 “No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” — commonly attributed to Heraclitus; the wording is a later paraphrase.
 “The journey is the reward.” — often attributed to Steve Jobs; attribution is disputed.
 “Success is the sum of small efforts, repeated day in and day out.” — commonly attributed to Robert Collier; wording varies.
-“We are what we repeatedly do.” — commonly attributed to Aristotle; the formulation comes from Will Durant's paraphrase.
 “Excellence is not an act, but a habit.” — Will Durant, summarizing Aristotle
 “Great things are done by a series of small things brought together.” — Vincent van Gogh
 “We must all suffer one of two things: the pain of discipline or the pain of regret.” — commonly attributed to Jim Rohn
@@ -214,6 +211,18 @@ mapfile -t quotes <<'QUOTES'
 “Do not measure your life only by where you are. Measure it by the direction in which you are moving.”
 “The goal is not to arrive unchanged. The goal is to become capable of arriving somewhere worth reaching.”
 “A complex life, like a complex system, is not built in a single operation. It emerges from simple processes executed consistently over time.”
+“Much of our behavior is a result of our environment.” — Richard Thaler
+“Losses loom larger than gains.” — Amos Tversky & Daniel Kahneman
+“People have a tendency to discount the future.”
+“A commitment device is a means with which to lock oneself into a course of action that one might not otherwise pursue.” — Thomas Schelling
+“The abundance of choice can lead to anxiety, indecision, and dissatisfaction.” — idea associated with Barry Schwartz's The Paradox of Choice
+“People make estimates by starting from an initial value that is adjusted to yield the final answer.” — Daniel Kahneman & Amos Tversky
+“The sunk-cost effect is the greater tendency to continue an endeavor once an investment in money, effort, or time has been made.” — Arkes & Blumer
+“People use mental accounting to organize, evaluate, and keep track of financial activities.” — Richard Thaler
+“The present is disproportionately important.”
+[Social Proof] “The actions of others are often a source of information about what is appropriate.”
+“If I were designing my life from zero today, would I choose this arrangement?”
+"Nudge"
 QUOTES
 
 count=${#quotes[@]}
