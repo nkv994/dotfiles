@@ -225,6 +225,9 @@ mapfile -t quotes <<'QUOTES'
 “If I were designing my life from zero today, would I choose this arrangement?”
 "Nudge"
 "There is no honest and true work, carried along with constant and sincere purpose that ever really fails." — William George Jordan
+"When you feel like quitting, think about why you started."
+"Work hard in silence, and let the success be your noise."
+"Difficult roads lead to beautiful destinations"
 QUOTES
 
 count=${#quotes[@]}
