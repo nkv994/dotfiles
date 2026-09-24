@@ -239,29 +239,5 @@ fi
 # printf '%s\n' "${quotes[index]}"
 
 quote="${quotes[$((RANDOM % count))]}"
-
-# wrapped=$(printf '%s\n' "$quote" | fold -s -w 80)
-# printf '%s\n' "$wrapped"
-
-case "${1:-all}" in
-    quote)
-        if [[ "$quote" == *" — "* ]]; then
-            quote_text="${quote% — *}"
-        else
-            quote_text="$quote"
-        fi
-        printf '%s\n' "$quote_text" | fold -s -w 80
-        ;;
-    author)
-        if [[ "$quote" == *" — "* ]]; then
-            author_text="${quote##* — }"
-            printf '— %s\n' "$author_text"
-        fi
-        ;;
-    all)
-        printf '%s\n' "$quote" | fold -s -w 80
-        ;;
-    *)
-        printf '%s\n' "$quote" | fold -s -w 80
-        ;;
-esac
+wrapped=$(printf '%s\n' "$quote" | fold -s -w 80)
+printf '%s\n' "$wrapped"
