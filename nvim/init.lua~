@@ -9,7 +9,7 @@ vim.opt.incsearch = false -- incremental search
 --vim.opt.softtabstop = 4 -- see multiple spaces as tabstops so <BS> does the right thing
 vim.opt.expandtab = false -- converts tabs to whitespace
 vim.opt.shiftwidth = 4 -- width for autoindents
-vim.opt.autoindent = false -- indent a new line the same amount as the line just typed
+vim.opt.autoindent = true -- indent a new line the same amount as the line just typed
 vim.opt.number = true -- add line numbers
 --vim.opt.wildmode = 'longest,list' -- get bash-like tab completions
 --vim.opt.cc = 80 -- set an 80 column border for good coding style
@@ -40,8 +40,12 @@ map("i", "<C-t>",     "<Esc>:tabnew<CR>")
 vim.cmd([[
 	call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'DavyJonesStockings/iceclimber.nvim'
 	call plug#end()
 ]])
+require("iceclimber").setup({})
 --
 --
 --- Floating Ranger in Neovim ---

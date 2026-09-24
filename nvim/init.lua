@@ -40,8 +40,12 @@ map("i", "<C-t>",     "<Esc>:tabnew<CR>")
 vim.cmd([[
 	call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'DavyJonesStockings/iceclimber.nvim'
 	call plug#end()
 ]])
+require("iceclimber").setup({})
 --
 --
 --- Floating Ranger in Neovim ---
