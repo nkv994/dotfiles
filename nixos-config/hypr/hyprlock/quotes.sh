@@ -228,6 +228,13 @@ mapfile -t quotes <<'QUOTES'
 "When you feel like quitting, think about why you started."
 "Work hard in silence, and let the success be your noise."
 "Difficult roads lead to beautiful destinations"
+“The goal is not to make money. The goal is to make money while you sleep.” — Warren Buffett (commonly attributed; exact wording unverified)
+“There is no such thing as a free lunch.” — Milton Friedman
+“The cost of anything is the amount of life you exchange for it.” — Henry David Thoreau (paraphrased)
+“Show me the incentive and I will show you the outcome.” — Charlie Munger (commonly attributed)
+“Nothing in life is as important as you think it is, while you are thinking about it.” — Daniel Kahneman
+“It is better to be roughly right than precisely wrong.” — John Maynard Keynes (commonly attributed)
+“The first principle is that you must not fool yourself—and you are the easiest person to fool.” — Richard P. Feynman
 QUOTES
 
 count=${#quotes[@]}
