@@ -135,26 +135,26 @@
     pavucontrol
     wireguard-tools
     sshfs
-	blueman
+    blueman
   ];
 
   # Setting up freqently usable Nerd fonts and other fonts
   fonts = {
     enableGhostscriptFonts = true;
     packages = with pkgs; [
-		nerd-fonts.iosevka
-		nerd-fonts.iosevka-term
-		nerd-fonts.iosevka-term-slab
-		nerd-fonts.jetbrains-mono
-		nerd-fonts.fira-code
-		nerd-fonts.fira-mono
-		nerd-fonts.hack
-		noto-fonts
-		noto-fonts-color-emoji
-		liberation_ttf
-		dejavu_fonts
-		eb-garamond
-		victor-mono
+	nerd-fonts.iosevka
+	nerd-fonts.iosevka-term
+	nerd-fonts.iosevka-term-slab
+	nerd-fonts.jetbrains-mono
+	nerd-fonts.fira-code
+	nerd-fonts.fira-mono
+	nerd-fonts.hack
+	noto-fonts
+	noto-fonts-color-emoji
+	liberation_ttf
+	dejavu_fonts
+	eb-garamond
+	victor-mono
     ];
   };
   

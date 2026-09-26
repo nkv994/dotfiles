@@ -6,17 +6,21 @@
 
     home.sessionVariables.GI_TYPELIB_PATH = "${pkgs.playerctl}/lib/girepository-1.0";  # To use "custom/media" module of waybar
 
-    programs.bash = {
-       enable = true;
-        shellAliases = {
-            btw = "echo I use NixOS, btw.";
-        };
+#    programs.bash = {
+#       enable = true;
+#        shellAliases = {
+#            btw = "echo I use NixOS, btw.";
+#        };
 #        profileExtra = ''
 #            if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
 #                exec uwsm start -S hyprland-uwsm.desktop
 #            fi
 #        '';
-    };
+#    };
+
+home.file.".bash_aliases".text = ''
+    alias btw='echo I use NixOS, btw.'
+'';
 
     programs.git = {
         enable = true;
@@ -127,6 +131,7 @@
 	scrcpy
 	android-tools
 	cmatrix
+	starship
     ];
     
     home.pointerCursor = {
