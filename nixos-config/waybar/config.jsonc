@@ -11,6 +11,7 @@
     ],
     "modules-right": [
 		"pulseaudio",
+		"bluetooth",
 		"memory",
 		"network",
 		"battery",
@@ -53,6 +54,25 @@
 		"on-click": "pavucontrol",
 		"ignored-sinks": ["Easy Effects Sink"]
     },
+
+	"bluetooth": {
+		"format": " {status}",
+		"format-disabled": "",
+		"format-off": " off",
+		"format-on": " on",
+		"format-connected": " {device_alias}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+
+		"tooltip": true,
+		"tooltip-format": "{controller_alias}\n{num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias} — {device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias} — {device_battery_percentage}%",
+
+		"on-click": "blueman-manager",
+		"on-click-right": "bluetoothctl power off",
+		"on-click-middle": "bluetoothctl power on"
+	},
 
     "memory": {
 		"format": "󰍛 {}%",

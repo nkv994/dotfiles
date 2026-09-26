@@ -135,6 +135,7 @@
     pavucontrol
     wireguard-tools
     sshfs
+	blueman
   ];
 
   # Setting up freqently usable Nerd fonts and other fonts

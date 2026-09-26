@@ -88,6 +88,7 @@ tooltip label {
 #power-profiles-daemon,
 #battery,
 #pulseaudio,
+#bluetooth,
 #memory,
 #network,
 #clock,
@@ -113,6 +114,25 @@ tooltip label {
 
 #pulseaudio {
     color: @yellow;
+}
+
+#bluetooth {
+	background-color: @bg0;
+    padding: 0 10px;
+    margin: 0 4px 0;
+    border-radius: 50px;
+    border: 1px solid @bg1;
+    color: @aqua;
+}
+
+#bluetooth.connected {
+    color: @blue;
+}
+
+#bluetooth.off,
+#bluetooth.disabled,
+#bluetooth.no-controller {
+    color: @grey1;
 }
 
 #memory {
