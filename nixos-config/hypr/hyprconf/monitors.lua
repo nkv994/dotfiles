@@ -11,9 +11,17 @@ for _, monitor in ipairs(hl.get_monitors()) do
 end
 
 -- External monitor (manually set mode and scaling)
+-- External monitor (manually set mode and scaling)
 hl.monitor({
     output = "HDMI-A-1",
     mode = "1280x1024@75.03Hz",
+    position = "0x0",
+    scale = 1,
+})
+
+hl.monitor({
+    output = "ASUSTek COMPUTER INC XG27ACS T5LMTF159485",
+    mode = "2560x1440@180.00Hz",
     position = "0x0",
     scale = 1,
 })
