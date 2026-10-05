@@ -20,7 +20,7 @@ hl.monitor({
 })
 
 hl.monitor({
-    output = "ASUSTek COMPUTER INC XG27ACS T5LMTF159485",
+    output = "desc:ASUSTek COMPUTER INC XG27ACS T5LMTF159485",
     mode = "2560x1440@180.00Hz",
     position = "0x0",
     scale = 1,
