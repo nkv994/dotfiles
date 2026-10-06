@@ -13,7 +13,7 @@ end
 -- External monitor (manually set mode and scaling)
 -- External monitor (manually set mode and scaling)
 hl.monitor({
-    output = "HDMI-A-1",
+    output = "desc:Dell Inc. DELL P1917S NGRP68260BQB",
     mode = "1280x1024@75.03Hz",
     position = "0x0",
     scale = 1,
