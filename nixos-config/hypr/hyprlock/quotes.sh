@@ -144,7 +144,7 @@ mapfile -t quotes <<'QUOTES'
 “He who conquers himself is the mightiest warrior.” — commonly attributed to Confucius; attribution is uncertain
 “First say to yourself what you would be; and then do what you have to do.” — Epictetus
 “If you are going through hell, keep going.” — commonly attributed to Winston Churchill; attribution is disputed.
-“Our greatest glory is not in never falling, but in rising every time we fall.” — commonly attributed to Confucius; attribution is uncertain.ake quote.sh output the quote and attribution separately
+“Our greatest glory is not in never falling, but in rising every time we fall.” — commonly attributed to Confucius; attribution is uncertain.
 “Fall seven times, stand up eight.” — Japanese proverb
 “Failure is simply the opportunity to begin again, this time more intelligently.” — commonly attributed to Henry Ford
 “It does not matter how slowly you go as long as you do not stop.” — commonly attributed to Confucius; attribution is uncertain.

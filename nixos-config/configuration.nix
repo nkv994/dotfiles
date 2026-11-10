@@ -136,6 +136,7 @@
     wireguard-tools
     sshfs
     blueman
+    qtspim
   ];
 
   # Setting up freqently usable Nerd fonts and other fonts
