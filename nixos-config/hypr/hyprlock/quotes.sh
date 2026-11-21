@@ -4,6 +4,8 @@ mapfile -t quotes <<'QUOTES'
 "Stay hungry, stay foolish." — Steve Jobs
 "First, solve the problem. Then, write the code." — John Johnson
 "Simplicity is prerequisite for reliability." — Edsger W. Dijkstra
+"Premature optimization is the root of all evil." — Donald Knuth
+"The purpose of a business is to create a customer." — Peter Drucker
 "Programs must be written for people to read." — Harold Abelson
 "Make it work, make it right, make it fast." — Kent Beck
 "The best error message is the one that never shows up." — Thomas Fuchs
@@ -219,6 +221,13 @@ mapfile -t quotes <<'QUOTES'
 “A commitment device is a means with which to lock oneself into a course of action that one might not otherwise pursue.” — Thomas Schelling
 “The abundance of choice can lead to anxiety, indecision, and dissatisfaction.” — idea associated with Barry Schwartz's The Paradox of Choice
 “People make estimates by starting from an initial value that is adjusted to yield the final answer.” — Daniel Kahneman & Amos Tversky
+"Price is what you pay, value is what you get." — Warren Buffet
+"Your margin is my opportunity." — Jeff Bezos
+"Innovation distinguishes between a leader and a follower." — Steve Jobs
+“If you are not embarrassed by the first version of your product, you've launched too late.” — Reid Hoffman
+"There is only one boss. The customer." — Sam Walton
+“You do not rise to the level of your goals. You fall to the level of your systems.” — James Clear
+"Earn with your mind, not your time." — Naval Ravikant
 “The sunk-cost effect is the greater tendency to continue an endeavor once an investment in money, effort, or time has been made.” — Arkes & Blumer
 “People use mental accounting to organize, evaluate, and keep track of financial activities.” — Richard Thaler
 “The present is disproportionately important.”
@@ -238,6 +247,7 @@ mapfile -t quotes <<'QUOTES'
 “The first principle is that you must not fool yourself—and you are the easiest person to fool.” — Richard P. Feynman
 "Good ideas are rare. When you find something that works, you've found gold. But instead of mining it, we go looking for more gold."
 “Often, the more money you make the more money you spend; that’s why more money doesn’t make you rich — assets make you rich.” — Robert Kiyosaki
+“The most effective debugging tool is still careful thought, coupled with judiciously placed print statements.” — Brian Kernighan
 QUOTES
 
 count=${#quotes[@]}
