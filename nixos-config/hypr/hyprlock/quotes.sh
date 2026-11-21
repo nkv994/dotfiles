@@ -43,6 +43,7 @@ mapfile -t quotes <<'QUOTES'
 “Every convenient abstraction in an operating system is paid for somewhere—in memory, latency, synchronization, or complexity.”
 “Concurrency does not make programs faster by magic; it exposes the structure of work to the machine.”
 “A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable.” — Leslie Lamport
+“Often, the more money you make the more money you spend; that’s why more money doesn’t make you rich – assets make you rich.” – Robert Kiyosaki
 “Time, clocks, and the ordering of events in a distributed system.” — Leslie Lamport
 “Security is not a product, but a process.” — Bruce Schneier
 “The only truly secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room with armed guards.” — Gene Spafford
@@ -235,6 +236,8 @@ mapfile -t quotes <<'QUOTES'
 “Nothing in life is as important as you think it is, while you are thinking about it.” — Daniel Kahneman
 “It is better to be roughly right than precisely wrong.” — John Maynard Keynes (commonly attributed)
 “The first principle is that you must not fool yourself—and you are the easiest person to fool.” — Richard P. Feynman
+"Good ideas are rare. When you find something that works, you've found gold. But instead of mining it, we go looking for more gold."
+“Often, the more money you make the more money you spend; that’s why more money doesn’t make you rich — assets make you rich.” — Robert Kiyosaki
 QUOTES
 
 count=${#quotes[@]}
